@@ -14,9 +14,12 @@ Download automated build from public Docker Hub Registry: docker pull creativege
 
 The simplest way to run this is (Port 80: Worpdress, Port 8080: Cloud9 IDE)
 
-    docker run -it -d -p 8080:80 -p 80:8080 -e PASS=c9pass creativegeekjp/docker-c9wordpress-en
+    docker run -it -d -p 8080:80 -p 80:8080 creativegeekjp/docker-c9wordpress-en
     
 You can add a workspace as a volume directory with the argument *-v /your-path/workspace/:/workspace/* like this :
 
-    docker run -it -d -p 8080:80 -p 80:8080 -e PASS=c9pass -v /your-path/workspace/:/workspace/ creativegeekjp/docker-c9wordpress-en
-    
+    docker run -it -d -p 8080:80 -p 80:8080 -v /your-path/workspace/:/workspace/ creativegeekjp/docker-c9wordpress-en
+
+Add Authentication for the Cloud9 IDE (-e C9AUTH="c9user:c9pass")
+
+    docker run -it -d -p 8080:80 -p 80:8080 -e C9AUTH="c9user:c9pass" -v /your-path/workspace/:/workspace/ creativegeekjp/docker-c9wordpress-en
